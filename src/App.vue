@@ -2,9 +2,15 @@
  import {NewsApiService} from "./news/services/news-api.service.js";
  import {ArticleAssembler} from "./news/services/article.assembler.js";
  import {SourceAssembler} from "./news/services/source.assembler.js";
+ import SourceList from "./news/components/source-list.component.vue";
+ import LanguageSwitcher from "./public/components/language-switcher.component.vue";
+ import ArticleList from "./news/components/article-list.component.vue";
+ import UnavailableContent from "./news/components/unavailable-content.component.vue";
+ import FooterContent from "./public/components/footer-content.component.vue";
 
  export default {
    name: 'App',
+   components: {FooterContent, UnavailableContent, ArticleList, LanguageSwitcher, SourceList},
    data() {
      return {
        drawerVisible: false,
@@ -38,12 +44,12 @@
              this.sources = [];
            });
      },
-     toggleDrawer() {
+     toggleSidebar() {
         this.drawerVisible = !this.drawerVisible;
       },
      setSource(source) {
        this.getArticlesForSourceWithLogo(source);
-       this.toggleDrawer();
+       this.toggleSidebar();
      }
    },
    created() {
@@ -51,4 +57,24 @@
    }
  }
 </script>
-<template></template>
+<template>
+  <div>
+    <div>
+      <pv-menubar>
+        <template #start>
+          <pv-button ico="pi pi-bars" label="CatchUp" text @click="toggleSidebar"/>
+          <source-list v-model:visible="drawerVisible" v-model:sources="sources"
+                       v-on:source-selected="setSource"/>
+        </template>
+        <template #end>
+          <language-switcher/>
+        </template>
+      </pv-menubar>
+    </div>
+  </div>
+  <div>
+    <article-list v-if="errors" :articles="articles"/>
+    <unavailable-content v-else :errors="errors"/>
+  </div>
+  <footer-content/>
+</template>
