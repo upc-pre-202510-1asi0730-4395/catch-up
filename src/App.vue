@@ -1,14 +1,14 @@
 <script>
- import {NewsApiService} from "./news/services/news-api.service.js";
- import {ArticleAssembler} from "./news/services/article.assembler.js";
- import {SourceAssembler} from "./news/services/source.assembler.js";
- import SourceList from "./news/components/source-list.component.vue";
- import LanguageSwitcher from "./public/components/language-switcher.component.vue";
- import ArticleList from "./news/components/article-list.component.vue";
- import UnavailableContent from "./news/components/unavailable-content.component.vue";
- import FooterContent from "./public/components/footer-content.component.vue";
+import {NewsApiService} from "./news/services/news-api.service.js";
+import {ArticleAssembler} from "./news/services/article.assembler.js";
+import {SourceAssembler} from "./news/services/source.assembler.js";
+import SourceList from "./news/components/source-list.component.vue";
+import LanguageSwitcher from "./public/components/language-switcher.component.vue";
+import ArticleList from "./news/components/article-list.component.vue";
+import UnavailableContent from "./news/components/unavailable-content.component.vue";
+import FooterContent from "./public/components/footer-content.component.vue";
 
- export default {
+export default {
    name: 'App',
    components: {FooterContent, UnavailableContent, ArticleList, LanguageSwitcher, SourceList},
    data() {
