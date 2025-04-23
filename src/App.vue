@@ -24,7 +24,7 @@ export default {
      getArticlesForSourceWithLogo(source) {
        this.newsApi.getArticlesForSourceId(source.id)
            .then((response) => {
-             this.articles = ArticleAssembler.toEntitiesFromResponse(response);
+             this.articles = ArticleAssembler.withSource(source).toEntitiesFromResponse(response);
              console.log(this.articles);
            })
            .catch((error) => {
