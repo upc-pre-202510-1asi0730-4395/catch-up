@@ -40,7 +40,7 @@ export default {
     </template>
     <template #subtitle>
       <p class="flex align-content-start flex-wrap">
-        <span class="flex align-items-center justify-content-center">
+        <span class="flex align-items-center justify-content-center mr-2">
           <pv-avatar :aria-label="article.source.name"
                      :image="article.source.urlToLogo"
                      shape="circle"/>
