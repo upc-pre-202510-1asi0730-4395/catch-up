@@ -64,7 +64,7 @@ export default {
       <div class="flex justify-content-center -webkit-box-sizing: border-box; justify-content: space-between;">
         <a :href="article.url" target="_blank">{{ $t('read-more')}}</a>
         <span class="p-spacer"></span>
-        <pv-select-button  :label="$t('article.share')" 
+        <pv-button  :label="$t('article.share')" 
                            icon="pi pi-share-alt"
                            class="p-button-text p-button-sm"
                            @click="shareArticle"
