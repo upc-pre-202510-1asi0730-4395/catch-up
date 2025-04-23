@@ -9,7 +9,7 @@ export class SourceAssembler {
         source.urlToLogo = source.url !== '' ? logoApi.getUrlToLogo(source) : '';
         return source;
     }
-    
+
     static toEntitiesFromResponse(response) {
         if (response.data.status !== 'ok') {
             console.error(`${response.status} ${response.code} ${response.message}`);
@@ -19,4 +19,5 @@ export class SourceAssembler {
         return sourcesResponse.sources.map((source) => {
             return this.toEntityFromResource(source);
         });
+    }
 }
