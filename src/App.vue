@@ -62,7 +62,7 @@ export default {
     <div>
       <pv-menubar>
         <template #start>
-          <pv-button ico="pi pi-bars" label="CatchUp" text @click="toggleSidebar"/>
+          <pv-button icon="pi pi-bars" label="CatchUp" text @click="toggleSidebar"/>
           <source-list v-model:visible="drawerVisible" v-model:sources="sources"
                        v-on:source-selected="setSource"/>
         </template>
